@@ -5,9 +5,9 @@ import React from 'react';
 import AppRoutes from '../routes';
 import { DEFAULT_SCREEN_OPTIONS } from '../navigator.options';
 import { RouteProp } from '@react-navigation/native';
-import LoginScreen from './login-screen';
-import HomeScreen from './home-screen';
-import ImageScreen from './image-screen';
+import LoginScreen from './LoginScreen';
+import HomeScreen from './HomeScreen';
+import ImageScreen from './ImageScreen';
 
 const Stack = createStackNavigator<UserNavigatorParams>();
 

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Text, View } from 'react-native';
-import { ImageScreenProps } from '../root-navigator';
+import { ImageScreenProps } from '../RootNavigator';
 import { styles } from './styles';
 
 const ImageScreen: FC<ImageScreenProps> = () => {

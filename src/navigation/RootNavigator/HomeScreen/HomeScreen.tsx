@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Text, View } from 'react-native';
-import { HomeScreenProps } from '../root-navigator';
+import { HomeScreenProps } from '../RootNavigator';
 import { styles } from './styles';
 
 const HomeScreen: FC<HomeScreenProps> = () => {
