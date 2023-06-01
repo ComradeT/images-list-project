@@ -2,7 +2,7 @@ import MasonryList from '@react-native-seoul/masonry-list';
 import { PhotoDto } from 'api/types';
 import { useAsyncAction } from 'hooks';
 import AppRoutes from 'navigation/routes';
-import React, { FC, useEffect } from 'react';
+import React, { FC, ReactElement, useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { actions, selectors, useAppSelector } from 'store';
 import { HomeScreenProps } from '../RootNavigator';
@@ -32,6 +32,13 @@ const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
     navigation.navigate(AppRoutes.ImageScreen, { url, title });
   };
 
+  const renderItem = ({ item }: { item: unknown }): ReactElement => {
+    const newItem = item as PhotoDto;
+    return (
+      <PhotoItem onPress={() => handleNavigate(newItem.url, newItem.title)} key={newItem.id} item={newItem} />
+    );
+  };
+
   return (
     <View style={styles.root}>
       {isPhotosLoading ? (
@@ -42,9 +49,7 @@ const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
         <MasonryList
           data={photos || []}
           contentContainerStyle={styles.scrollContainer}
-          renderItem={({ item }: { item: PhotoDto }) => (
-            <PhotoItem onPress={() => handleNavigate(item.url, item.title)} key={item.id} item={item} />
-          )}
+          renderItem={renderItem}
           keyExtractor={keyExtractor}
           showsVerticalScrollIndicator={false}
           numColumns={3}

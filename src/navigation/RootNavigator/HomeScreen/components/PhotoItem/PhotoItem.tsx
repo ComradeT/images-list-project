@@ -1,5 +1,5 @@
 import { PhotoDto } from 'api/types';
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, memo, useMemo, useState } from 'react';
 import { Dimensions, TouchableOpacityProps, TouchableOpacity, ActivityIndicator } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { styles } from './styles';
@@ -35,4 +35,4 @@ const PhotoItem: FC<PhotoItemProps> = ({ item, ...props }) => {
   );
 };
 
-export default PhotoItem;
+export default memo(PhotoItem);
