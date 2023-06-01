@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
+  rootLoading: {
+    justifyContent: 'center',
+  },
   shadowContainer: {
     width: '100%',
     height: Dimensions.get('screen').height * 0.18,
