@@ -1,9 +1,10 @@
 import MasonryList from '@react-native-seoul/masonry-list';
-import { api } from 'api';
 import { PhotoDto } from 'api/types';
+import { useAsyncAction } from 'hooks';
 import AppRoutes from 'navigation/routes';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
+import { actions, selectors, useAppSelector } from 'store';
 import { HomeScreenProps } from '../RootNavigator';
 import { PhotoItem } from './components';
 import { styles } from './styles';
@@ -11,23 +12,20 @@ import { styles } from './styles';
 const keyExtractor = (item: PhotoDto) => String(item.id);
 
 const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
-  const [photos, setPhotos] = useState<PhotoDto[] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [getPhotosAction, isPhotosLoading] = useAsyncAction(actions.photos.getPhotos);
+  const photos = useAppSelector(selectors.photos.selectPhotos);
 
   const getPhotos = async () => {
-    setIsLoading(true);
     try {
-      const response = await api.getPhotos();
-      setPhotos(response);
+      await getPhotosAction();
     } catch (error) {
       console.log('error', error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getPhotos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleNavigate = (url: string, title: string) => {
@@ -36,7 +34,7 @@ const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
 
   return (
     <View style={styles.root}>
-      {isLoading ? (
+      {isPhotosLoading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" />
         </View>
