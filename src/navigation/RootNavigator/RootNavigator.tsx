@@ -26,7 +26,7 @@ export default RootNavigator;
 export type UserNavigatorParams = {
   [AppRoutes.LoginScreen]: undefined;
   [AppRoutes.HomeScreen]: undefined;
-  [AppRoutes.ImageScreen]: undefined;
+  [AppRoutes.ImageScreen]: { url: string; title: string };
 };
 
 export interface LoginScreenProps {

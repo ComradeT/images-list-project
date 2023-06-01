@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'red',
+    backgroundColor: '#28b7d4',
   },
   text: {
     fontSize: 14,

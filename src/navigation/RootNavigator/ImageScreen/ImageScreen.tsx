@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
-import { Text, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
 import { ImageScreenProps } from '../RootNavigator';
 import { styles } from './styles';
 
-const ImageScreen: FC<ImageScreenProps> = () => {
+const ImageScreen: FC<ImageScreenProps> = ({ route }) => {
+  const { title, url } = route.params;
+
   return (
-    <View style={styles.root}>
-      <Text style={styles.title}>ImageScreen</Text>
-    </View>
+    <ImageBackground source={{ uri: url }} style={styles.root} resizeMode="cover">
+      <View style={styles.shadowContainer}>
+        <Text style={styles.title}>{title}</Text>
+      </View>
+    </ImageBackground>
   );
 };
 

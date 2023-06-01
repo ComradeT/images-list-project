@@ -8,17 +8,13 @@ type TextFieldProps = TextInputProps & {
 };
 
 const TextField = forwardRef(
-  (
-    { error, style, value, onChangeText, editable, ...props }: TextFieldProps,
-    ref: ForwardedRef<TextInput>,
-  ) => {
+  ({ error, style, value, onChangeText, ...props }: TextFieldProps, ref: ForwardedRef<TextInput>) => {
     return (
       <View style={style}>
         <TextInput
           {...props}
           value={value}
           onChangeText={onChangeText}
-          editable={editable}
           autoCapitalize="none"
           allowFontScaling={false}
           autoCorrect={false}
