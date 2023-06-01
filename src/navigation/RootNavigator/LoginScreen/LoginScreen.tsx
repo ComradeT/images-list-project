@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { Controller, useForm } from 'react-hook-form';
 import { View } from 'react-native';
-
+import { Controller, useForm } from 'react-hook-form';
 import { Button, TextField } from 'components';
 import AppRoutes from 'navigation/routes';
 import { LoginScreenProps } from '../RootNavigator';
+
 import { styles } from './styles';
 
 export type AuthFormType = {

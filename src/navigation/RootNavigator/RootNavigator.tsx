@@ -1,15 +1,13 @@
-import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
-
 import React from 'react';
-
-import AppRoutes from '../routes';
-import { DEFAULT_SCREEN_OPTIONS } from '../navigator.options';
+import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
+import { DEFAULT_SCREEN_OPTIONS } from '../navigator.options';
+import AppRoutes from '../routes';
 import LoginScreen from './LoginScreen';
 import HomeScreen from './HomeScreen';
 import ImageScreen from './ImageScreen';
 
-const Stack = createStackNavigator<UserNavigatorParams>();
+const Stack = createStackNavigator<RootNavigatorParams>();
 
 const RootNavigator = () => {
   return (
@@ -23,23 +21,23 @@ const RootNavigator = () => {
 
 export default RootNavigator;
 
-export type UserNavigatorParams = {
+export type RootNavigatorParams = {
   [AppRoutes.LoginScreen]: undefined;
   [AppRoutes.HomeScreen]: undefined;
   [AppRoutes.ImageScreen]: { url: string; title: string };
 };
 
 export interface LoginScreenProps {
-  navigation: StackNavigationProp<UserNavigatorParams, AppRoutes.LoginScreen>;
-  route: RouteProp<UserNavigatorParams, AppRoutes.LoginScreen>;
+  navigation: StackNavigationProp<RootNavigatorParams, AppRoutes.LoginScreen>;
+  route: RouteProp<RootNavigatorParams, AppRoutes.LoginScreen>;
 }
 
 export interface HomeScreenProps {
-  navigation: StackNavigationProp<UserNavigatorParams, AppRoutes.HomeScreen>;
-  route: RouteProp<UserNavigatorParams, AppRoutes.HomeScreen>;
+  navigation: StackNavigationProp<RootNavigatorParams, AppRoutes.HomeScreen>;
+  route: RouteProp<RootNavigatorParams, AppRoutes.HomeScreen>;
 }
 
 export interface ImageScreenProps {
-  navigation: StackNavigationProp<UserNavigatorParams, AppRoutes.ImageScreen>;
-  route: RouteProp<UserNavigatorParams, AppRoutes.ImageScreen>;
+  navigation: StackNavigationProp<RootNavigatorParams, AppRoutes.ImageScreen>;
+  route: RouteProp<RootNavigatorParams, AppRoutes.ImageScreen>;
 }
