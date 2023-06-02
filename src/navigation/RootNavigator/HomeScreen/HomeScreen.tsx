@@ -1,12 +1,13 @@
-import MasonryList from '@react-native-seoul/masonry-list';
-import { PhotoDto } from 'api/types';
-import { useAsyncAction } from 'hooks';
-import AppRoutes from 'navigation/routes';
 import React, { FC, ReactElement, useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
+import MasonryList from '@react-native-seoul/masonry-list';
+import AppRoutes from 'navigation/routes';
 import { actions, selectors, useAppSelector } from 'store';
+import { PhotoDto } from 'api/types';
+import { useAsyncAction } from 'hooks';
 import { HomeScreenProps } from '../RootNavigator';
 import { PhotoItem } from './components';
+
 import { styles } from './styles';
 
 const keyExtractor = (item: PhotoDto) => String(item.id);

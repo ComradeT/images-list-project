@@ -6,9 +6,6 @@ export const styles = StyleSheet.create({
 
     backgroundColor: '#122333',
   },
-  title: {
-    color: '#FFFFFF',
-  },
   scrollContainer: {
     justifyContent: 'center',
     alignItems: 'center',

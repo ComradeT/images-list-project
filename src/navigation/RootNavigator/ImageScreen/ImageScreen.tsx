@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { ActivityIndicator, ImageBackground, Text, View } from 'react-native';
 import { ImageScreenProps } from '../RootNavigator';
+
 import { styles } from './styles';
 
 const ImageScreen: FC<ImageScreenProps> = ({ route }) => {
